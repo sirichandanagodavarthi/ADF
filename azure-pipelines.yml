@@ -1,22 +1,22 @@
 trigger:
   branches:
     include:
-      - adf_publish  # Use the branch containing the ARM templates
+      - adf_publish  # The branch with ARM templates
 
 pool:
   vmImage: 'windows-latest'
 
 steps:
 - task: AzureResourceManagerTemplateDeployment@3
-  displayName: 'Deploy Azure Data Factory ARM Templates'
+  displayName: 'Deploy Azure Data Factory'
   inputs:
     deploymentScope: 'Resource Group'
-    azureResourceManagerConnection: '<ServiceConnectionName>'  # Replace with your Azure service connection name
-    subscriptionId: '<SubscriptionID>'  # Replace with your Azure subscription ID
+    azureResourceManagerConnection: 'ARM' # Replace this with your Azure service connection
+    subscriptionId: '694e70fb-6461-46b5-8f52-767e976f2607'  # Replace with your subscription ID
     action: 'Create Or Update Resource Group'
-    resourceGroupName: '<ResourceGroupName>'  # Replace with your Azure resource group
-    location: '<Region>'  # Replace with your ADF location
+    resourceGroupName: 'Test' # Replace with your resource group name
+    location: 'South India'  # Replace with your ADF location
     templateLocation: 'Linked artifact'
     csmFile: '$(System.DefaultWorkingDirectory)/arm_template/arm_template.json'
     csmParametersFile: '$(System.DefaultWorkingDirectory)/arm_template/arm_template_parameters.json'
-    overrideParameters: '-factoryName "<ADFName>"'  # Replace with your ADF name
+    overrideParameters: '-factoryName "ToyMoverADF"'  # Replace with your ADF name

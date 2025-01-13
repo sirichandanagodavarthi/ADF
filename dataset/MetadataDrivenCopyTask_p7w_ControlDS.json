@@ -1,0 +1,19 @@
+{
+	"name": "MetadataDrivenCopyTask_p7w_ControlDS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "MetadataDrivenCopyTask_p7w_20250113"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "md",
+			"table": "MainControlTable_p7w"
+		}
+	}
+}
